@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Resume</title>
+<style>
+  body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #201c1c;
+    color: #ffffff;
+    overflow: auto;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  .resume {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin: auto;
+  }
+  .job {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  .company {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .description {
+    margin-bottom: 10px;
+  }
+  .scroll-arrow {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg); /* Rotate to create a downward pointing chevron */
+    width: 30px; 
+    height: 30px; 
+    border-right: 2px solid #fff; /* Only right border is visible, forming half of the chevron */
+    border-bottom: 2px solid #fff; /* Only bottom border is visible, forming the other half of the chevron */
+  }
+  @media (max-width: 600px) {
+    .company, .description {
+      width: 100%;
+    }
+  }
+</style>
+<script>
+  window.onscroll = function() {
+    var scrollArrow = document.querySelector('.scroll-arrow');
+    scrollArrow.style.opacity = '0'; // Fade out
+    setTimeout(function() {
+      scrollArrow.style.display = 'none'; // Hide after fading
+    }, 500);
+  }
+</script>
+</head>
+<body>
+<div class="header">
+  <h1>Your Name</h1>
+  <div class="scroll-arrow"></div> <!-- Custom CSS arrow -->
+</div>
+<div class="resume">
+  <div class="job">
+    <div class="company">Company A</div>
+    <div class="description">Role and responsibilities at Company A...</div>
+  </div>
+  <div class="job">
+    <div class="company">Company B</div>
+    <div class="description">Role and responsibilities at Company B...</div>
+  </div>
+  <!-- More jobs can be added here -->
+</div>
+</body>
+</html>
