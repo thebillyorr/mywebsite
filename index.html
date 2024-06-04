@@ -78,6 +78,35 @@
       width: 100%;
     }
   }
+
+/*  Resume Items*/
+
+#experience {
+  list-style: none; /* Removes bullet points */
+  padding: 0; /* Removes default padding */
+}
+
+#experience li {
+  display: flex; /* Aligns the logo and details side by side */
+  align-items: center; /* Aligns items vertically centered */
+  border-bottom: 1px solid #ccc; /* Adds a horizontal line between items */
+  padding: 10px 0; /* Adds some vertical padding for spacing between items */
+}
+
+#experience li:last-child {
+  border-bottom: none; /* Removes the bottom border from the last item */
+}
+
+.company-logo {
+  width: 100px; /* Set the width of the logo */
+  height: 100px; /* Set the height of the logo */
+  margin-right: 40px; /* Adds space between the logo and the details */
+}
+
+.job-details {
+  flex: 1; /* Takes the remaining space in the flex container */
+}
+
 </style>
 <script>
 function showSection(sectionId) {
@@ -97,27 +126,52 @@ function showSection(sectionId) {
   <h1>Your Name</h1>
   <div class="scroll-arrow"></div> <!-- Custom CSS arrow -->
 </div>
-<div id="menu">
+<div class="resume">
+  <div id="menu">
     <button onclick="showSection('experience')">Experience</button>
     <button onclick="showSection('projects')">Projects</button>
     <button onclick="showSection('certifications')">Certifications</button>
   </div>
-<div class="resume">
-  <ol id="experience" class="content-section active">
-    <li>Role and responsibilities at Company A...</li>
-    <li>Role and responsibilities at Company B...</li>
-    <!-- More experiences can be added here -->
-  </ol>
-  <ol id="projects" class="content-section">
+  <ul id="experience" class="content-section active">
+  <li>
+    <img src="./intact.png" class="company-logo">
+    <div class="job-details">
+      <div style = "font-size: 20px; font-family: sans-serif;">Security Analyst Intern</div>
+      <br>
+      <div style="color: lightgrey;"><i>Intact Financial | Vancouver, BC</i></div>
+      <div style="color: lightgrey;"><i>May 2024 - August 2024</i></div>
+    </div>
+  </li>
+  <li>
+    <img src="./blackberry.png" class="company-logo">
+    <div class="job-details">
+      <div style = "font-size: 20px; font-family: sans-serif;">Security Engineer Intern</div>
+      <br>
+      <div style="color: lightgrey;"><i>BlackBerry | Waterloo, ON</i></div>
+      <div style="color: lightgrey;"><i>January 2024 - April 2024</i></div>
+    </div>
+  </li>
+  <li>
+    <img src="./cyberunit.png" class="company-logo">
+    <div class="job-details">
+      <div style = "font-size: 20px; font-family: sans-serif;">Security Engineer Intern</div>
+      <br>
+      <div style="color: lightgrey;"><i>Cyber Unit | Vancouver, BC</i></div>
+      <div style="color: lightgrey;"><i>October 2021 - August 2022</i></div>
+    </div>
+  </li>
+  </ul>
+
+  <ul id="projects" class="content-section">
     <li>Project A description</li>
     <li>Project B description</li>
     <!-- More projects can be added here -->
-  </ol>
-  <ol id="certifications" class="content-section">
+  </ul>
+  <ul id="certifications" class="content-section">
     <li>Certification A details</li>
     <li>Certification B details</li>
     <!-- More certifications can be added here -->
-  </ol>
+  </ul>
 </div>
 </body>
 </html>
