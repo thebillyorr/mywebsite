@@ -19,6 +19,7 @@
     align-items: center;
     height: 100vh;
     text-align: center;
+    position: relative; /* Ensure the header has a positioning context */
   }
   .resume {
     display: block;
@@ -27,7 +28,7 @@
     padding: 20px;
     margin: auto;
   }
-  .job {
+  .job, .project, .certification {
     margin-bottom: 20px;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
@@ -40,14 +41,37 @@
     margin-bottom: 10px;
   }
   .scroll-arrow {
-    position: fixed;
+    position: absolute;
     bottom: 30px;
     left: 50%;
-    transform: translateX(-50%) rotate(45deg); /* Rotate to create a downward pointing chevron */
-    width: 30px; 
-    height: 30px; 
-    border-right: 2px solid #fff; /* Only right border is visible, forming half of the chevron */
-    border-bottom: 2px solid #fff; /* Only bottom border is visible, forming the other half of the chevron */
+    transform: translateX(-50%) rotate(45deg); /* Rotate the element to form a downward pointing chevron */
+    width: 20px; /* Width of the arrow */
+    height: 20px; /* Height of the arrow */
+    border-right: 2px solid #fff; /* Right border of the chevron */
+    border-bottom: 2px solid #fff; /* Bottom border of the chevron */
+    transition: opacity 5s ease;
+    animation: flash 5s infinite;
+  }
+  #menu button {
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    background-color: #f4f4f4;
+    color: #000;
+    border: 1px solid #ddd;
+  }
+  #menu button:hover {
+    background-color: #e9e9e9;
+  }
+  .content-section {
+    display: none;
+  }
+  .content-section.active {
+    display: block;
+  }
+  @keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
   @media (max-width: 600px) {
     .company, .description {
@@ -56,13 +80,16 @@
   }
 </style>
 <script>
-  window.onscroll = function() {
-    var scrollArrow = document.querySelector('.scroll-arrow');
-    scrollArrow.style.opacity = '0'; // Fade out
-    setTimeout(function() {
-      scrollArrow.style.display = 'none'; // Hide after fading
-    }, 500);
+function showSection(sectionId) {
+  var sections = document.querySelectorAll('.content-section');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+  var activeSection = document.getElementById(sectionId);
+  if (activeSection) {
+    activeSection.style.display = 'block';
   }
+}
 </script>
 </head>
 <body>
@@ -70,16 +97,27 @@
   <h1>Your Name</h1>
   <div class="scroll-arrow"></div> <!-- Custom CSS arrow -->
 </div>
+<div id="menu">
+    <button onclick="showSection('experience')">Experience</button>
+    <button onclick="showSection('projects')">Projects</button>
+    <button onclick="showSection('certifications')">Certifications</button>
+  </div>
 <div class="resume">
-  <div class="job">
-    <div class="company">Company A</div>
-    <div class="description">Role and responsibilities at Company A...</div>
-  </div>
-  <div class="job">
-    <div class="company">Company B</div>
-    <div class="description">Role and responsibilities at Company B...</div>
-  </div>
-  <!-- More jobs can be added here -->
+  <ol id="experience" class="content-section active">
+    <li>Role and responsibilities at Company A...</li>
+    <li>Role and responsibilities at Company B...</li>
+    <!-- More experiences can be added here -->
+  </ol>
+  <ol id="projects" class="content-section">
+    <li>Project A description</li>
+    <li>Project B description</li>
+    <!-- More projects can be added here -->
+  </ol>
+  <ol id="certifications" class="content-section">
+    <li>Certification A details</li>
+    <li>Certification B details</li>
+    <!-- More certifications can be added here -->
+  </ol>
 </div>
 </body>
 </html>
