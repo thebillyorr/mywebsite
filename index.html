@@ -19,8 +19,57 @@
       align-items: center;
       height: 100vh;
       text-align: center;
-      position: relative; /* Ensure the header has a positioning context */
+      position: relative;
     }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      margin: 5%;
+    }
+
+    .scroll-arrow {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transition: opacity 5s ease;
+      animation: flash 5s infinite;
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    #menu {
+      display: flex;
+      justify-content: center;
+      background-color: #201c1c;
+      padding: 20px;
+    }
+    #menu button {
+      cursor: pointer;
+      padding: 10px 20px;
+      margin: 0 10px;
+      background-color: transparent;
+      color: #fff;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      transition: color 0.3s, text-shadow 0.3s;
+      border: none;
+      text-decoration: none;
+      font-weight: normal;
+    }
+    #menu button:hover {
+      color: #ccc;
+      text-shadow: 1px 1px 2px #666;
+    }
+
     .resume {
       display: block;
       width: 100%;
@@ -40,160 +89,138 @@
     .description {
       margin-bottom: 10px;
     }
-    .scroll-arrow {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%) rotate(45deg); /* Rotate the element to form a downward pointing chevron */
-      width: 20px; /* Width of the arrow */
-      height: 20px; /* Height of the arrow */
-      border-right: 2px solid #fff; /* Right border of the chevron */
-      border-bottom: 2px solid #fff; /* Bottom border of the chevron */
-      transition: opacity 5s ease;
-      animation: flash 5s infinite;
-    }
-    #menu button {
-      cursor: pointer;
-      padding: 10px;
-      margin: 5px;
-      background-color: #f4f4f4;
-      color: #000;
-      border: 1px solid #ddd;
-    }
-    #menu button:hover {
-      background-color: #e9e9e9;
-    }
+    
     .content-section {
       display: none;
     }
     .content-section.active {
       display: block;
     }
-    @keyframes flash {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
+
     @media (max-width: 600px) {
       .company, .description {
         width: 100%;
       }
     }
-
-/*  Resume Items*/
-
-#experience, #certifications {
-  list-style: none; /* Removes bullet points */
-  padding: 0; /* Removes default padding */
-}
-
-#experience li, #certifications li {
-  display: flex; /* Aligns the logo and details side by side */
-  align-items: center; /* Aligns items vertically centered */
-  border-bottom: 1px solid #ccc; /* Adds a horizontal line between items */
-  padding: 10px 0; /* Adds some vertical padding for spacing between items */
-}
-
-#experience li:last-child, #certifications li:last-child {
-  border-bottom: none; /* Removes the bottom border from the last item */
-}
-
-.logo {
-  width: 100px; /* Set the width of the logo */
-  height: 100px; /* Set the height of the logo */
-  margin-right: 40px; /* Adds space between the logo and the details */
-}
-
-.job-details {
-  flex: 1; /* Takes the remaining space in the flex container */
-}
-
-</style>
-<script>
-  function showSection(sectionId) {
-    var sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-      section.style.display = 'none';
-    });
-    var activeSection = document.getElementById(sectionId);
-    if (activeSection) {
-      activeSection.style.display = 'block';
+    
+    #experience, #certifications {
+      list-style: none;
+      padding: 0;
     }
-  }
-</script>
+    #experience li, #certifications li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      height: 121px; /* Ensuring height consistency */
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin-right: 40px;
+    }
+    .job-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  </style>
+  <script>
+    function showSection(sectionId) {
+      var sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+      var activeSection = document.getElementById(sectionId);
+      if (activeSection) {
+        activeSection.style.display = 'block';
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="header">
-    <h1>Your Name</h1>
-    <div class="scroll-arrow"></div> <!-- Custom CSS arrow -->
-  </div>
-
-
-  <!-- Header Div is first Half, Resume Div is second Half -->
-
-
-  <div class="resume">
-
-    <!-- Menu -->
-    <div id="menu">
-      <button onclick="showSection('experience')">Experience</button>
-      <button onclick="showSection('certifications')">Certifications</button>
+    <img src="../cover.jpeg" style="height: 70%; width: auto; margin: 5%;">
+    <div class="header-text">
+        <h1>Billy Orr</h1>
+        <h2>LinkedIn | GitHub</h2>
     </div>
-
-    <!-- Resume -->
+    <div class="scroll-arrow"></div>
+  </div>
+  <div class="resume">
+    <div id="menu">
+      <button style="font-size: 20px; font-family: sans-serif;" onclick="showSection('experience')">Experience</button>
+      <button style="font-size: 20px; font-family: sans-serif;" onclick="showSection('certifications')">Certifications</button>
+    </div>
     <ul id="experience" class="content-section active">
       <li>
         <img src="./intact.png" class="logo">
         <div class="job-details">
-          <div style = "font-size: 20px; font-family: sans-serif;">Security Analyst Intern</div>
+          <div style="font-size: 20px; font-family: sans-serif;">Security Analyst Intern</div>
           <br>
           <div style="color: lightgrey;"><i>Intact Financial | Vancouver, BC</i></div>
           <div style="color: lightgrey;"><i>May 2024 - August 2024</i></div>
         </div>
       </li>
+
+      <hr style="width: 45%">
+
       <li>
         <img src="./blackberry.png" class="logo">
         <div class="job-details">
-          <div style = "font-size: 20px; font-family: sans-serif;">Security Engineer Intern</div>
+          <div style="font-size: 20px; font-family: sans-serif;">Security Engineer Intern</div>
           <br>
           <div style="color: lightgrey;"><i>BlackBerry | Waterloo, ON</i></div>
           <div style="color: lightgrey;"><i>January 2024 - April 2024</i></div>
         </div>
       </li>
+
+      <hr style="width: 45%">
+
       <li>
         <img src="./cyberunit.png" class="logo">
         <div class="job-details">
-          <div style = "font-size: 20px; font-family: sans-serif;">Security Engineer Intern</div>
+          <div style="font-size: 20px; font-family: sans-serif;">Security Engineer Intern</div>
           <br>
           <div style="color: lightgrey;"><i>Cyber Unit | Vancouver, BC</i></div>
           <div style="color: lightgrey;"><i>October 2021 - August 2022</i></div>
         </div>
       </li>
     </ul>
-
-    <!-- Certifications -->
     <ul id="certifications" class="content-section">
       <li>
         <img src="./securityplus.png" class="logo">
-        <div class="job-details">
-          <div style = "font-size: 20px; font-family: sans-serif;">Security+</div>
+        <div class="job-details" style="width: 25%">
+          <div style="font-size: 20px; font-family: sans-serif;">Security+</div>
           <br>
           <div style="color: lightgrey;"><i>CompTIA</i></div>
         </div>
       </li>
-      <li>
+
+      <hr style="width: 45%">
+
+      <li style="border-bottom: none">
         <img src="./cc.png" class="logo">
-        <div class="job-details">
-          <div style = "font-size: 20px; font-family: sans-serif;">CC - Certified in Cybersecurity</div>
+        <div class="job-details" style="width: 25%">
+          <div style="font-size: 20px; font-family: sans-serif;">CC</div>
           <br>
           <div style="color: lightgrey;"><i>ISC2</i></div>
         </div>
       </li>
+
+
+      <!-- FILLER LI TO MAKE THE CONTENT SECTIONS EVEN -->
+      <!-- HARDCODED HEIGHT TO MATCH LOGO HEIGHT -->
+      <li>
+        <div class="job-details" style="height: 100px;">
+          <div style="font-size: 20px; font-family: sans-serif;"></div>
+          <br>
+          <div style="color: lightgrey;"><i></i></div>
+        </div>
+      </li>
     </ul>
-
-
-    <!-- Footer goes here -->
-
-
   </div>
+  <br>
 </body>
 </html>
