@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Resume</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Billy Orr</title>
   <style>
     body, html {
       font-family: Arial, sans-serif;
@@ -13,6 +14,7 @@
       color: #ffffff;
       overflow: auto;
     }
+
     .header {
       display: flex;
       justify-content: center;
@@ -25,6 +27,29 @@
     .header-text {
       display: flex;
       flex-direction: column;
+      text-align: center;
+    }
+
+    .header-text h1 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 12vh; /* Increased font size */
+      margin: 0;
+    }
+
+    .header-text h1:first-of-type {
+      font-style: italic;
+      margin-left: -2vw; /* Shifted "BILLY" to the left */
+    }
+
+    .header-text h1:nth-of-type(2) {
+      font-style: italic;
+      margin-top: -2vh; /* Adjusted to ensure overlap */
+      margin-left: 2vw; /* Adjusted to ensure overlap */
+    }
+
+    .header-text h2 {
+      font-size: 1.5rem;
+      margin-top: 1rem;
     }
 
     .scroll-arrow {
@@ -51,6 +76,7 @@
       background-color: #201c1c;
       padding: 20px;
     }
+
     #menu button {
       cursor: pointer;
       padding: 10px 20px;
@@ -64,6 +90,7 @@
       text-decoration: none;
       font-weight: normal;
     }
+
     #menu button:hover {
       color: #ccc;
       text-shadow: 1px 1px 2px #666;
@@ -76,22 +103,26 @@
       padding: 20px;
       margin: auto;
     }
+
     .job, .project, .certification {
       margin-bottom: 20px;
       border-bottom: 1px solid #ccc;
       padding-bottom: 10px;
     }
+
     .company {
       font-weight: bold;
       margin-bottom: 5px;
     }
+
     .description {
       margin-bottom: 10px;
     }
-    
+
     .content-section {
       display: none;
     }
+
     .content-section.active {
       display: block;
     }
@@ -101,11 +132,12 @@
         width: 100%;
       }
     }
-    
+
     #experience, #certifications {
       list-style: none;
       padding: 0;
     }
+
     #experience li, #certifications li {
       display: flex;
       align-items: center;
@@ -119,6 +151,7 @@
       height: 100px;
       margin-right: 40px;
     }
+
     .job-details {
       display: flex;
       flex-direction: column;
@@ -142,8 +175,17 @@
   <div class="header">
     <img src="../cover.png" style="height: 70%; width: auto;">
     <div class="header-text">
-        <h1>Billy Orr</h1>
-        <h2>LinkedIn | GitHub</h2>
+        <h1>BILLY</h1>
+        <h1>ORR</h1>
+        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+            <a href="https://www.linkedin.com/in/thebillyorr/" target="_blank">
+                <img src="./linkedin.png" style="height: 5vh; width: 5vh;" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/thebillyorr" target="_blank">
+                <img src="./github.png" style="height: 5vh; width: 5vh;" alt="GitHub">
+            </a>
+            
+        </div>
     </div>
     <div class="scroll-arrow"></div>
   </div>
@@ -207,7 +249,6 @@
           <div style="color: lightgrey;"><i>ISC2</i></div>
         </div>
       </li>
-
 
       <!-- FILLER LI TO MAKE THE CONTENT SECTIONS EVEN -->
       <!-- HARDCODED HEIGHT TO MATCH LOGO HEIGHT -->
