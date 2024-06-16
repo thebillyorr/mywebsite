@@ -24,32 +24,20 @@
       position: relative;
     }
 
-    .header-text {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .header-text h1 {
+    .header h1 {
       font-family: 'Roboto Slab', serif;
       font-size: 12vh; /* Increased font size */
+      font-style: italic;
       margin: 0;
     }
 
-    .header-text h1:first-of-type {
-      font-style: italic;
+    .header h1:first-of-type {
       margin-left: -2vw; /* Shifted "BILLY" to the left */
     }
 
-    .header-text h1:nth-of-type(2) {
-      font-style: italic;
+    .header h1:nth-of-type(2) {
       margin-top: -2vh; /* Adjusted to ensure overlap */
       margin-left: 2vw; /* Adjusted to ensure overlap */
-    }
-
-    .header-text h2 {
-      font-size: 1.5rem;
-      margin-top: 1rem;
     }
 
     .scroll-arrow {
@@ -104,33 +92,12 @@
       margin: auto;
     }
 
-    .job, .project, .certification {
-      margin-bottom: 20px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
-    }
-
-    .company {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .description {
-      margin-bottom: 10px;
-    }
-
     .content-section {
       display: none;
     }
 
     .content-section.active {
       display: block;
-    }
-
-    @media (max-width: 600px) {
-      .company, .description {
-        width: 100%;
-      }
     }
 
     #experience, #certifications {
@@ -163,6 +130,7 @@
       var sections = document.querySelectorAll('.content-section');
       sections.forEach(section => {
         section.style.display = 'none';
+
       });
       var activeSection = document.getElementById(sectionId);
       if (activeSection) {
@@ -173,8 +141,8 @@
 </head>
 <body>
   <div class="header">
-    <img src="../cover.png" style="height: 70%; width: auto;">
-    <div class="header-text">
+    <img src="./cover.jpg" style="height: 70%; width: auto; margin: 5%;">
+    <div>
         <h1>BILLY</h1>
         <h1>ORR</h1>
         <div style="display: flex; gap: 1rem; margin-top: 1rem;">
