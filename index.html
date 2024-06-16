@@ -31,15 +31,6 @@
       margin: 0;
     }
 
-    .header h1:first-of-type {
-      margin-left: -2vw; /* Shifted "BILLY" to the left */
-    }
-
-    .header h1:nth-of-type(2) {
-      margin-top: -2vh; /* Adjusted to ensure overlap */
-      margin-left: 2vw; /* Adjusted to ensure overlap */
-    }
-
     .scroll-arrow {
       position: absolute;
       bottom: 30px;
@@ -124,6 +115,34 @@
       flex-direction: column;
       justify-content: center;
     }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+
+  #cover {
+    height: 45vh !important;
+    width: auto !important; /* Maintain aspect ratio */
+    margin-bottom: 20px !important; /* Add some space below the image */
+  }
+
+  #title h1 {
+    font-size: 5vh !important; /* Reduce font size for smaller screens */
+    margin-left: 1vh;
+    margin-right: 1vh;
+  }
+
+  #title {
+    display: flex;
+  }
+}
+
+
+
+
+
+
   </style>
   <script>
     function showSection(sectionId) {
@@ -141,11 +160,13 @@
 </head>
 <body>
   <div class="header">
-    <img src="./cover.jpg" style="height: 70%; width: auto; margin: 5%;">
+    <img id="cover" src="./cover.jpg" style="height: 70%; width: auto; margin: 5%; border-radius: 25px;">
     <div>
+      <div id="title">
         <h1>BILLY</h1>
         <h1>ORR</h1>
-        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+      </div>
+        <div style="display: flex; gap: 1rem; margin-top: 1rem; justify-content: center">
             <a href="https://www.linkedin.com/in/thebillyorr/" target="_blank">
                 <img src="./linkedin.png" style="height: 5vh; width: 5vh;" alt="LinkedIn">
             </a>
